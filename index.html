@@ -1,0 +1,144 @@
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+<h1> Spring role</h1>
+<p>
+    Registration page
+
+Reg.html
+
+<html>
+<head>
+<title>Register</title>
+<style>
+    form
+    {
+        border:3px solid  pink;
+        border-radius: 20px;
+        width:300;
+        padding: 20px;
+        background-color: rgb(242, 219, 10);
+    }
+</style>
+<script src="newreg1.js" type="text/javascript">
+
+</script>
+</head>
+<body bgcolor="orange"><center>
+    <h1 style="color: rgb(22, 57, 131);"><u>Registeration Form</u></h1>
+<form>
+    First Name:<input type="text" id="name"><br>
+    <b id="name1"></b><br>
+    Middle Name:<input type="text" id="mname"><br>
+    <b id="mname1"></b><br>
+    Last Name: <input type="text" id="lname"><br>
+    <b id="lname1"></b><br>
+    Course:<select>
+        <option>CS</option>
+        <option>ME</option>
+        <option>CE</option>
+        <option>EC</option>
+        <option>EEE</option>
+        <option>PT</option>
+    </select>
+    DOB:<input type="date" id="date">
+    Gender: <input type="radio" name="gen">Male </input><input type="radio" name="gen">Female </input><br>
+    Phone: <input type="text" id="phno"><br>
+    <b id="phno1"></b><br>
+    Address:<textarea rows="5" cols="20" id="address"></textarea><br>
+    Email Address :  <input type="text" id="email"><br>
+    <b id="email1"></b><br>
+    Password :   <input type="password" id="pswd"><br>
+    Re-type Password: <input type="password" id="rpswd"><br>
+    <b id="pass1"></b><br>
+    <input type="button" value="SUBMIT" onclick="fun1()">
+</form>    
+</body>
+</html>
+
+newreg1.js
+function fun1() {
+    var x = document.getElementById("name").value;
+    var ex = /^[A-Za-z]+$/;
+
+    var y = document.getElementById("mname").value;
+    var ey = /^[A-Z]$/;
+
+    var z = document.getElementById("lname").value;
+    var ez = /^[A-Za-z]+$/;
+
+    var p = document.getElementById("phno").value;
+    var ep = /^[0-9]{10}$/;
+
+    var m = document.getElementById("email").value;
+    var em =  /^[a-zA-Z0-9.]+@[A-Za-z.]+$/;
+
+    var p = document.getElementById("pswd").value;
+    var rp = document.getElementById("rpswd").value;
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("pswd").value;
+
+
+    if (x == "") {
+        document.getElementById("name1").innerHTML = "Please fill out the field";
+    } else if (!ex.test(x)) {
+        document.getElementById("name1").innerHTML = "Please enter only alphabetic characters";
+    } else {
+        document.getElementById("name1").innerHTML = "";
+    }
+
+    if (y == "") {
+        document.getElementById("mname1").innerHTML = "";
+    } else if (!ey.test(y)) {
+        document.getElementById("mname1").innerHTML = "Please Enter Single Letter";
+    } else {
+        document.getElementById("mname1").innerHTML = "";
+    }
+
+    if (z == "") {
+        document.getElementById("lname1").innerHTML = "Please fill out the field";
+    } else if (!ez.test(z)) {
+        document.getElementById("lname1").innerHTML = "Please enter only alphabetic characters";
+    } else {
+        document.getElementById("lname1").innerHTML = "";
+    }
+
+    if (p == "") {
+        document.getElementById("phno1").innerHTML = "Please fill out the field";
+    } else if (!ep.test(p)) {
+        document.getElementById("phno1").innerHTML = "Please enter a valid 10-digit phone number";
+    } else {
+        document.getElementById("phno1").innerHTML = "";
+    }
+
+    if (m == "") {
+        document.getElementById("email1").innerHTML = "Please fill out the field";
+    } else if (!em.test(m)) {
+        document.getElementById("email1").innerHTML = "Please enter a valid email address";
+    } else {
+        document.getElementById("email1").innerHTML = "";
+    }
+
+    if(p!=rp) {
+        document.getElementById("pass1").innerHTML = "Passwords do not match";
+    }
+    else if(p.length==0 || rp.length==0) {
+        document.getElementById("pass1").innerHTML = "Please fill out the field";
+    }
+    else {
+        alert("Registration Successfully");
+        window.location.href="web.html"
+    }
+
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+
+}
+
+
+</p>    
+</body>
+</html>
